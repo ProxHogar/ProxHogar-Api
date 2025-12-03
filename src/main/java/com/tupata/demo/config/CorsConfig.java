@@ -12,8 +12,8 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Permitir todas las rutas
-                        .allowedOrigins("http://localhost:5173", "http://localhost:3000") // Puertos comunes de React
+                registry.addMapping("/**")
+                        .allowedOriginPatterns("*") // <--- CAMBIO CLAVE: Permite localhost Y dominios en la nube
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
