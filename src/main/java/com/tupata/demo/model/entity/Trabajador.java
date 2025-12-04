@@ -1,5 +1,6 @@
 package com.tupata.demo.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ public class Trabajador {
     // Vinculamos al Usuario (Dueño de la cuenta)
     @OneToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("trabajador")
     private Usuario usuario;
 
     private String biografia;

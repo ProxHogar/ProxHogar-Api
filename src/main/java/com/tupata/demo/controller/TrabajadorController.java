@@ -13,8 +13,17 @@ public class TrabajadorController {
 
     private final TrabajadorService trabajadorService;
 
+    // URL: GET /api/trabajadores/usuario/5
     @GetMapping("/usuario/{usuarioId}")
-    public ResponseEntity<Trabajador> getTrabajadorByUsuarioId(@PathVariable Long usuarioId) {
-        return ResponseEntity.ok(trabajadorService.findByUsuarioId(usuarioId));
+    public ResponseEntity<?> obtenerPorUsuario(@PathVariable Long usuarioId) {
+        try {
+            Trabajador trabajador = trabajadorService.obtenerPorUsuarioId(usuarioId);
+            return ResponseEntity.ok(trabajador);
+        } catch (RuntimeException e) {
+            // Capturamos el error y devolvemos 404 en lugar de 500
+            return ResponseEntity.status(404).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error interno: " + e.getMessage());
+        }
     }
 }
