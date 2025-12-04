@@ -59,6 +59,8 @@ public class UsuarioServiceImpl implements UsuarioService {
         Trabajador trabajador = new Trabajador();
         trabajador.setUsuario(usuario);
         trabajador.setBiografia(dto.getBiografia());
+        trabajador.setDni(dto.getDni());
+        trabajador.setAntecedentesPenalesVerificados(dto.isAntecedentesPenalesVerificados());
         trabajador.setFotoBiometricaReferenciaUrl(dto.getFotoBiometricaReferenciaUrl());
 
         trabajador.setCalificacionPromedio(5.0);

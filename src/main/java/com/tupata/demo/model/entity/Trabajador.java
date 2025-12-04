@@ -21,6 +21,8 @@ public class Trabajador {
     private Usuario usuario;
 
     private String biografia;
+    private String dni;
+    private boolean antecedentesPenalesVerificados;
     private Double calificacionPromedio; // Ej: 4.5
     private Integer trabajosCompletados;
 
